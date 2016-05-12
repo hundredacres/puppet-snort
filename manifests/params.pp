@@ -11,7 +11,7 @@ class snort::params {
     }
     'RedHat', 'Amazon': {
       $package_name = 'snort'
-      $service_name = 'snort'
+      $service_name = 'snortd'
     }
     default: {
       fail("${::operatingsystem} not supported")
