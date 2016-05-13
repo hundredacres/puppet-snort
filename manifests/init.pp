@@ -36,6 +36,7 @@ class snort (
   if $barnyard {
     ::snort::plugin {'barnyard2':
       install_package => true,
+      templatefile    => 'snort/barnyard2.conf.erb',
     }
   }
 
