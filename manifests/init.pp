@@ -33,6 +33,10 @@ class snort (
   validate_string($package_name,$service_name)
   validate_bool($barnyard)
 
+  if $barnyard {
+    ::snort::plugin {'barnyard2':}
+  }
+
   class { '::snort::install': } ->
   class { '::snort::config': } ~>
   class { '::snort::service': } ->

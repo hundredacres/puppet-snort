@@ -1,6 +1,6 @@
 define snort::plugin(
   $ensure          = 'present',
-  $templatefile    = '',
+  $templatefile    = undef,
   $install_package = false,
   $notify_service  = true,
 ) {
