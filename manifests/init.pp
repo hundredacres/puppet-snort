@@ -24,11 +24,14 @@ class snort (
   $dcerpc2_memcap          = $::snort::params::dcerpc2_memcap,
   $enable                  = $::snort::params::enable,
   $ensure                  = $::snort::params::ensure,
+  $barnyard                = $::snort::params::false,
   $norules                 = $::snort::params::norules,
   $rotation                = $::snort::params::rotation,
 ) inherits ::snort::params {
 
   # validate parameters here
+  validate_string($package_name,$service_name)
+  validate_bool($barnyard)
 
   class { '::snort::install': } ->
   class { '::snort::config': } ~>
