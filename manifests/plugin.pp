@@ -12,8 +12,6 @@ define snort::plugin(
   if $install_package {
     package{ $name:
       ensure  => present,
-      notify  => $manage_service_autorestart,
-      require => Package[$::snort::package_name],
     }
   }
   if $templatefile {
