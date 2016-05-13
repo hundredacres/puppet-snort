@@ -34,7 +34,9 @@ class snort (
   validate_bool($barnyard)
 
   if $barnyard {
-    ::snort::plugin {'barnyard2':}
+    ::snort::plugin {'barnyard2':
+      install_package => true,
+    }
   }
 
   class { '::snort::install': } ->
