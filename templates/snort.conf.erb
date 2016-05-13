@@ -42,13 +42,13 @@
 ###################################################
 
 # Setup the network addresses you are protecting
-ipvar HOME_NET <%= @ip_ranges -%>
+ipvar HOME_NET <%= scope['snort::ip_ranges'] -%>
 
 # Set up the external network addresses. Leave as "any" in most situations
 ipvar EXTERNAL_NET any
 
 # List of DNS servers on your network
-ipvar DNS_SERVERS <%= @dns_servers -%>
+ipvar DNS_SERVERS <%= scope['snort::dns_servers'] -%>
 
 # List of SMTP servers on your network
 ipvar SMTP_SERVERS $HOME_NET
@@ -224,7 +224,7 @@ config event_queue: max_queue 8 log 5 order_events content_length
 #   suspend-timeout 20, \
 #   rule-log alert
 
-<% if @snort_perfprofile  == "true" then %>
+<% if scope['snort::snort_perfprofile'] then %>
 ###################################################
 # Configure Perf Profiling for debugging
 # For more information see README.PerfProfiling
