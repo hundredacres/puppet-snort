@@ -68,11 +68,11 @@ config logdir: /var/log/snort
 #     config alert_with_interface_name
 #
 config hostname:   <%= @hostname %>
-config interface:  <%= @interface %>
+config interface:  <%= @interfaces %>
 
 # enable printing of the interface name when alerting.
 #
-#config alert_with_interface_name
+config alert_with_interface_name
 
 # at times snort will alert on a packet within a stream and dump that stream to
 # the unified output. barnyard2 can generate output on each packet of that
